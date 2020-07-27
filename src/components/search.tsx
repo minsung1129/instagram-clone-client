@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+// import styled from "styled-components";
 import styled from "styled-components";
 
 interface ButtonPropsType {
-  primary?: boolean;
+  primary: boolean;
 }
+
 /*
 background: ${(props) => (props.primary ? "lightgray" : "white")};
 color: ${(props) => (props.primary ? "white" : "lightgray")};
@@ -30,17 +32,35 @@ const SearchSpan = styled.span`
   display: flex;
 `;
 
+const Search: React.FC<ButtonPropsType> = (props) => {
+  let [flag, setFlag] = useState<boolean>(props.primary);
+  const openX = () => {
+    setFlag(true);
+    console.log(props.primary);
+  };
+  const closeX = () => {
+    setFlag(false);
+  };
+  document.addEventListener("onClick", () => {
+    setFlag(false);
+    console.log(props.primary);
+  });
+  return (
+    <SearchSpan>
+      <InstaInput
+        placeholder="🔍 검색"
+        onClick={openX}
+        id="searchInput"
+      ></InstaInput>
+      <SearchButton primary={flag} onClick={closeX}>
+        x
+      </SearchButton>
+    </SearchSpan>
+  );
+};
+
 const SearchButton = styled.button<ButtonPropsType>`
-  display: ${(props) => (props.primary ? "block" : "block")};
+  display: ${(props) => (props.primary ? "block" : "none")};
 `;
-
-type SearchProps = {};
-
-const Search: React.FC<SearchProps> = () => (
-  <SearchSpan>
-    <InstaInput placeholder="🔍 검색"></InstaInput>
-    <SearchButton>x</SearchButton>
-  </SearchSpan>
-);
 
 export default Search;

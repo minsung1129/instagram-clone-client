@@ -25,7 +25,7 @@ const Navigator: React.FC<NavigatorProps> = () => (
       <img src={instagram} width="120em" height="50em" alt="testA" />
     </Link>
 
-    <Search />
+    <Search primary={false} />
 
     <Navspan>
       <Link to="/">
