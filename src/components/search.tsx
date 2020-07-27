@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, MouseEvent } from "react";
+
 // import styled from "styled-components";
 import styled from "styled-components";
 
@@ -10,46 +11,27 @@ interface ButtonPropsType {
 background: ${(props) => (props.primary ? "lightgray" : "white")};
 color: ${(props) => (props.primary ? "white" : "lightgray")};
 */
-const InstaInput = styled.input`
-  padding: 0.25em 1em;
-  border: none;
-  justify-content: center;
-  align-items: center;
-  width: 15em;
-  height: 2em;
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    align-items: center;
-    justify-content: center;
-  }
-`;
-const SearchSpan = styled.span`
-  background: white;
-  color: lightgray;
-  border: 2px solid lightgray;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-`;
 
 const Search: React.FC<ButtonPropsType> = (props) => {
   let [flag, setFlag] = useState<boolean>(props.primary);
   const openX = () => {
     setFlag(true);
-    console.log(props.primary);
   };
-  const closeX = () => {
+  const closeX = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     setFlag(false);
   };
   document.addEventListener("onClick", () => {
     setFlag(false);
-    console.log(props.primary);
+    // console.log(props.primary);
   });
+  document.getElementById("searchInput")?.focus();
   return (
-    <SearchSpan>
+    <SearchSpan onClick={openX}>
+      &nbsp;🔍 {flag ? "" : " 검색"}
       <InstaInput
-        placeholder="🔍 검색"
-        onClick={openX}
+        primary={flag}
+        placeholder="검색"
         id="searchInput"
       ></InstaInput>
       <SearchButton primary={flag} onClick={closeX}>
@@ -61,6 +43,41 @@ const Search: React.FC<ButtonPropsType> = (props) => {
 
 const SearchButton = styled.button<ButtonPropsType>`
   display: ${(props) => (props.primary ? "block" : "none")};
+  border-radius: 50%;
+  border: none;
+  background: lightgray;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
+`;
+const InstaInput = styled.input<ButtonPropsType>`
+  &:focus {
+    outline: none;
+  }
+  display: ${(props) => (props.primary ? "block" : "none")};
+  padding: 0.25em 1em;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  width: 15em;
+  height: 1em;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    align-items: center;
+    justify-content: center;
+  }
+`;
+const SearchSpan = styled.span`
+  height: 2em;
+  width: 15em;
+  background: white;
+  color: lightgray;
+  border: 2px solid lightgray;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  pointer: cusor;
 `;
 
 export default Search;
