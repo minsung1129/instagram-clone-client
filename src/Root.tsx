@@ -10,10 +10,7 @@ const Root: React.FC = () => (
   <BrowserRouter>
     <GlobalStyle whiteColor />
     <Navigator />
-    {/* <br />
-    <Link to="/no1">1로</Link>
-    <br />
-    <Link to="/no2">2로</Link> */}
+    <hr />
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/explor" component={No1} />
