@@ -25,6 +25,9 @@ const SearchSpan = styled.span`
   background: white;
   color: lightgray;
   border: 2px solid lightgray;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 `;
 
 const SearchButton = styled.button<ButtonPropsType>`
