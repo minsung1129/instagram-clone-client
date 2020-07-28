@@ -33,17 +33,17 @@ const Navigator: React.FC<NavigatorProps> = () => (
           🏠
         </span>
       </Link>
-      <Link to="/explor">
-        <span role="img" aria-label="explor">
-          🧭
-        </span>
-      </Link>
+      <span role="img" aria-label="explor">
+        🧭
+      </span>
       <span role="img" aria-label="heart">
         💔
       </span>
-      <span role="img" aria-label="setting">
-        ⚙️
-      </span>
+      <Link to="/profile">
+        <span role="img" aria-label="setting">
+          ⚙️
+        </span>
+      </Link>
     </Navspan>
   </Navdiv>
 );
