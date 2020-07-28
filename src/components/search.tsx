@@ -1,6 +1,4 @@
 import React, { useState, MouseEvent } from "react";
-
-// import styled from "styled-components";
 import styled from "styled-components";
 
 interface ButtonPropsType {
@@ -13,7 +11,7 @@ color: ${(props) => (props.primary ? "white" : "lightgray")};
 */
 
 const Search: React.FC<ButtonPropsType> = (props) => {
-  let [flag, setFlag] = useState<boolean>(props.primary);
+  const [flag, setFlag] = useState<boolean>(props.primary);
   const openX = () => {
     setFlag(true);
   };
@@ -23,12 +21,13 @@ const Search: React.FC<ButtonPropsType> = (props) => {
   };
   document.addEventListener("onClick", () => {
     setFlag(false);
-    // console.log(props.primary);
   });
   document.getElementById("searchInput")?.focus();
   return (
     <SearchSpan onClick={openX}>
-      &nbsp;🔍 {flag ? "" : " 검색"}
+      <span role="img" aria-label="home">
+        &nbsp;🔍 {flag ? "" : " 검색"}
+      </span>
       <InstaInput
         primary={flag}
         placeholder="검색"
