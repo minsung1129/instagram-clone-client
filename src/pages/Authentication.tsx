@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Input from '../components/Input';
 import useInput from '../Hooks/UseInput';
+import Google from '../img/Logo.png';
 
 const Wrapper = styled.article`
   min-height: 80vh;
@@ -12,6 +13,30 @@ const Wrapper = styled.article`
   justify-content: center;
 `;
 const Wrapper2 = styled.div`
+`;
+const Wrapper3 = styled.div`
+margin: 10px 40px 18px;
+display:flex;
+`;
+const Wrapper4 = styled.div`
+display:flex;
+align-items: center;
+justify-content: center;
+`;
+const Line = styled.div`
+flex-grow: 1;
+flex-shrink:1;
+background-color: ${(props) => props.theme.lightGreyColor};
+height: 1px;
+position: relative;
+top: 7px;
+`;
+const Or = styled.div`
+color: ${(props) => props.theme.darkGreyColor};
+font-size: 13px;
+font-weight: 600;
+line-height: 15px;
+margin: 0 18px;
 `;
 const IDBOX = styled.div`
   ${(props) => props.theme.whiteBox}
@@ -28,6 +53,8 @@ font-family: 'Lobster', cursive;
 font-size : 50px;
 margin : 0 0 20px;
 padding: 20px 0px
+pointer-events: none;
+user-select: none;
 `;
 const Box = styled.div`
  ${(props) => props.theme.whiteBox}
@@ -54,12 +81,47 @@ width : 250px;
 height: 36px;
 color: #FFFFFF;
 font-weight : 800;
+cursor:pointer;
+outline:none;
 `;
 
 const DisButton = styled(Button)`
   opacity: 0.4;
 `;
 
+const Googlebtn = styled.button`
+border:0;
+background:transparent;
+width : 250px;
+height: 36px;
+cursor:pointer;
+outline:none;
+display: flex;
+align-items: center;
+justify-content: center;
+&:active {
+  opacity: 0.4;
+}
+`;
+const GLogo = styled.img`
+display:block;
+width : 30px;
+height: 30px;
+margin-right: 8px;
+user-select:none;
+user-drag: none;
+`;
+const GoogleLogin = styled.span`
+font-size: 15px;
+font-weight: 600;
+color: #385185;
+`;
+const Findpassword = styled(GoogleLogin)`
+font-size: 13px;
+font-weight: 500;
+margin-top:30px;
+margin-left:10px;
+`;
 export default () => {
   const [action, setAction] = useState('LogIn');
   const username = useInput('');
@@ -96,6 +158,22 @@ export default () => {
                 ) : (
                   <DisButton disabled>로그인</DisButton>
                 )}
+                <Wrapper3>
+                  <Line />
+                  <Or>또는</Or>
+                  <Line />
+                </Wrapper3>
+                <Wrapper4>
+                  <Googlebtn>
+                    <GLogo style={{ borderRadius: 10 }} src={Google} alt="" />
+                    <GoogleLogin>Google으로 로그인</GoogleLogin>
+                  </Googlebtn>
+                </Wrapper4>
+                <Wrapper4>
+                  <Googlebtn>
+                    <Findpassword>비밀번호를 잊으셨나요?</Findpassword>
+                  </Googlebtn>
+                </Wrapper4>
               </form>
             ) : (
               <form>
