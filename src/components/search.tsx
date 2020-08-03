@@ -1,7 +1,5 @@
-import React, { useState, MouseEvent } from "react";
-
-// import styled from "styled-components";
-import styled from "styled-components";
+import React, { useState, MouseEvent } from 'react';
+import styled from 'styled-components';
 
 interface ButtonPropsType {
   primary: boolean;
@@ -13,7 +11,7 @@ color: ${(props) => (props.primary ? "white" : "lightgray")};
 */
 
 const Search: React.FC<ButtonPropsType> = (props) => {
-  let [flag, setFlag] = useState<boolean>(props.primary);
+  const [flag, setFlag] = useState<boolean>(props.primary);
   const openX = () => {
     setFlag(true);
   };
@@ -21,19 +19,22 @@ const Search: React.FC<ButtonPropsType> = (props) => {
     event.stopPropagation();
     setFlag(false);
   };
-  document.addEventListener("onClick", () => {
+  document.addEventListener('onClick', () => {
     setFlag(false);
-    // console.log(props.primary);
   });
-  document.getElementById("searchInput")?.focus();
+  document.getElementById('searchInput')?.focus();
   return (
     <SearchSpan onClick={openX}>
-      &nbsp;🔍 {flag ? "" : " 검색"}
+      <span role="img" aria-label="home">
+        &nbsp;🔍
+        {' '}
+        {flag ? '' : ' 검색'}
+      </span>
       <InstaInput
         primary={flag}
         placeholder="검색"
         id="searchInput"
-      ></InstaInput>
+      />
       <SearchButton primary={flag} onClick={closeX}>
         x
       </SearchButton>
@@ -42,7 +43,7 @@ const Search: React.FC<ButtonPropsType> = (props) => {
 };
 
 const SearchButton = styled.button<ButtonPropsType>`
-  display: ${(props) => (props.primary ? "block" : "none")};
+  display: ${(props) => (props.primary ? 'block' : 'none')};
   border-radius: 50%;
   border: none;
   background: lightgray;
@@ -55,7 +56,7 @@ const InstaInput = styled.input<ButtonPropsType>`
   &:focus {
     outline: none;
   }
-  display: ${(props) => (props.primary ? "block" : "none")};
+  display: ${(props) => (props.primary ? 'block' : 'none')};
   padding: 0.25em 1em;
   border: none;
   justify-content: center;
