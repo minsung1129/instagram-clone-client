@@ -45,14 +45,13 @@ const IDBOX = styled.div`
   width : 350px;
   margin : 0 0 10px;
   text-align : center;
-  padding: 20px 0px
+  padding: 5px 0px
 `;
 const Logo = styled.h1`
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 font-family: 'Lobster', cursive;
 font-size : 50px;
-margin : 0 0 20px;
-padding: 20px 0px
+margin: 22px auto 12px;
 pointer-events: none;
 user-select: none;
 `;
@@ -69,8 +68,6 @@ const State = styled.span`
   cursor : pointer;
 `;
 const LogIn = styled.div`
-margin : 0 0 20px;
-padding: 20px 0px
 `;
 
 const Button = styled.button`
@@ -122,6 +119,13 @@ font-weight: 500;
 margin-top:30px;
 margin-left:10px;
 `;
+const Message = styled.h2`
+color: #8e8e8e;
+font-size: 17px;
+font-weight: 600;
+line-height: 20px;
+text-align: center;
+`;
 export default () => {
   const [action, setAction] = useState('LogIn');
   const username = useInput('');
@@ -142,6 +146,7 @@ export default () => {
           <LogIn>
             {action === 'LogIn' ? (
               <form>
+                <div style={{ paddingBottom: 35 }} />
                 {ID.value === '' ? (
                   <Input {...ID} Message="전화번호, 사용자 이름 또는 이메일" />
                 ) : (
@@ -177,6 +182,21 @@ export default () => {
               </form>
             ) : (
               <form>
+                <div style={{ paddingBottom: 5 }} />
+                <Wrapper3>
+                  <Message>친구들의 사진과 동영상을 보려면 가입하세요.</Message>
+                </Wrapper3>
+                <Wrapper4>
+                  <Googlebtn>
+                    <GLogo style={{ borderRadius: 10 }} src={Google} alt="" />
+                    <GoogleLogin>Google으로 로그인</GoogleLogin>
+                  </Googlebtn>
+                </Wrapper4>
+                <Wrapper3>
+                  <Line />
+                  <Or>또는</Or>
+                  <Line />
+                </Wrapper3>
                 {ID.value === '' ? (
                   <Input {...ID} Message="휴대폰 번호 또는 이메일 주소" />
                 ) : (
