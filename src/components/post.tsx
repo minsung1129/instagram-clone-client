@@ -36,7 +36,10 @@ const Post: React.FC<ButtonPropsType> = (props) => {
         if (i % 3 == 0) {
           return (
             <ThreePosts key={i}>
-              <PostImg photoURL={myPost[i]}></PostImg>
+              <PostImg
+                photoURL={myPost[i]}
+                onClick={(e) => console.log(e)}
+              ></PostImg>
               <PostImg photoURL={myPost[i + 1]}></PostImg>
               <PostImg photoURL={myPost[i + 2]}></PostImg>
             </ThreePosts>
