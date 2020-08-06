@@ -10,7 +10,8 @@ const Root: React.FC = () => (
   <BrowserRouter>
     <GlobalStyle whiteColor />
     <Navigator />
-    <hr />
+    <br />
+    <br />
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/profile" component={Profile} />

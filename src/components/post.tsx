@@ -32,6 +32,12 @@ const Post: React.FC<PostPropsType> = (props) => {
     "https://i.imgur.com/ezAC6fp.png",
     "https://i.imgur.com/Iq2mqgQ.png",
     "https://i.imgur.com/PkPWFfB.png",
+    "https://i.imgur.com/ezAC6fp.png",
+    "https://i.imgur.com/Iq2mqgQ.png",
+    "https://i.imgur.com/PkPWFfB.png",
+    "https://i.imgur.com/ezAC6fp.png",
+    "https://i.imgur.com/Iq2mqgQ.png",
+    "https://i.imgur.com/PkPWFfB.png",
   ];
   const [curPostNum, setCurPostNum] = useState(initPostNum);
   const [postClicked, setPostClicked] = useState(false);

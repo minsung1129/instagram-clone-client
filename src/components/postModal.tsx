@@ -76,6 +76,10 @@ const PostModal: React.FC<PostModalPropsType> = (props) => {
           </PostModalClose>
           <ModalStyle>
             <HelloPost postPhoto={props.postPhoto}></HelloPost>
+            <div>
+              <h4>박보영</h4>
+              <hr />
+            </div>
           </ModalStyle>
         </PostModalContents>
       </PostModalStyle>
