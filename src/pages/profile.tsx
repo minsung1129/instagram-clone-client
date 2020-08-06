@@ -1,15 +1,7 @@
-import React, { useState, MouseEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import testImg from "../img/park.png";
 import Post from "../components/post";
-
-// username
-// user photo
-// 게시물 수
-// follower
-// following
-// 게시물
-// 자기소개
 
 interface ButtonPropsType {
   photoURL?: string;

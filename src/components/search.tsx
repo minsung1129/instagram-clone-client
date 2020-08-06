@@ -28,7 +28,10 @@ const Search: React.FC<ButtonPropsType> = (props) => {
   document.getElementById("searchInput")?.focus();
   return (
     <SearchSpan onClick={openX}>
-      &nbsp;🔍 {flag ? "" : " 검색"}
+      &nbsp;
+      <span role="img" aria-label="search">
+        🔍 {flag ? "" : " 검색"}
+      </span>
       <InstaInput
         primary={flag}
         placeholder="검색"

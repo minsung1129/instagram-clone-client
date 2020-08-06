@@ -68,7 +68,7 @@ const Post: React.FC<PostPropsType> = (props) => {
         <></>
       )}
       {myPost.map((e, i) => {
-        if (i % 3 == 0) {
+        if (i % 3 === 0) {
           return (
             <ThreePosts key={i}>
               <PostImg photoURL={myPost[i]} id={"id" + i}></PostImg>
