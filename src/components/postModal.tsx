@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Person from "./person";
 import styled from "styled-components";
 
 interface PostModalPropsType {
@@ -52,6 +53,10 @@ const ModalStyle = styled.div`
   display: flex;
 `;
 
+const CommentStyle = styled.div`
+  width: 40%;
+`;
+
 const PostModal: React.FC<PostModalPropsType> = (props) => {
   let [flag, setFlag] = useState<boolean>(props.primary ? props.primary : true);
   const onFormSubmit = (e: any) => {
@@ -76,10 +81,14 @@ const PostModal: React.FC<PostModalPropsType> = (props) => {
           </PostModalClose>
           <ModalStyle>
             <HelloPost postPhoto={props.postPhoto}></HelloPost>
-            <div>
-              <h4>박보영</h4>
+            <CommentStyle>
+              <Person username={"김민성"}></Person>
               <hr />
-            </div>
+              <Person username={"김민성"}></Person>
+              <Person username={"김민성"}></Person>
+              <Person username={"김민성"}></Person>
+              <Person username={"김민성"}></Person>
+            </CommentStyle>
           </ModalStyle>
         </PostModalContents>
       </PostModalStyle>

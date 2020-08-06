@@ -51,17 +51,11 @@ const Profile: React.FC<ButtonPropsType> = (props) => {
   let [follower, setFollower] = useState<number>(222);
   let [following, setFollowing] = useState<number>(333);
 
-  useEffect(() => {
-    document.getElementById("hi")?.addEventListener("click", () => {
-      console.log("bye");
-    });
-  }, []);
-
   return (
     <div>
       <MyProfile>
         <ProfileImg photoURL={myPhotoURL}></ProfileImg>
-        <div id="hi">
+        <div>
           <h3>
             {userName} &nbsp;&nbsp;
             <FollowBtn>팔로우</FollowBtn>
