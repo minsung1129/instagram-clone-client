@@ -1,46 +1,62 @@
 import React, { useState, MouseEvent, useEffect } from "react";
 import styled from "styled-components";
 
-interface ButtonPropsType {
-  primary: boolean;
-  onSubmit: Function;
+interface PostModalPropsType {
+  primary?: boolean;
+  onSubmit?: Function;
+  postPhoto?: string;
 }
 
-const PostModalStyle = styled.form<ButtonPropsType>`
-    display : ${(props) => (props.primary ? "none" : "none")}
-    position: fixed; 
-    z-index: 10; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.4); 
+const PostModalStyle = styled.form`
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 `;
 
 const PostModalContents = styled.div`
   background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
+  margin: 10% auto;
+  padding: 0;
   border: 1px solid #888;
-  width: 70%;
+  width: 60%;
+  height: 67%;
 `;
 
 const PostModalClose = styled.div`
   cursor: pointer;
-  background-color: #e70909fd;
   text-align: center;
+  position: fixed;
+  right: 5%;
+  top: 5%;
   padding-bottom: 10px;
   padding-top: 10px;
+  width: 2em;
+  font-size: 2em;
 `;
 
-const PostModal: React.FC<ButtonPropsType> = (props) => {
-  let [flag, setFlag] = useState<boolean>(props.primary);
+const HelloPost = styled.div<PostModalPropsType>`
+  display: flex;
+  width: 60%;
+  height: 100em;
+  background-image: url(${(props) =>
+    props.postPhoto ? props.postPhoto : "black"});
+  background-repeat: no-repeat;
+`;
 
+const ModalStyle = styled.div`
+  display: flex;
+`;
+
+const PostModal: React.FC<PostModalPropsType> = (props) => {
+  let [flag, setFlag] = useState<boolean>(props.primary ? props.primary : true);
   const onFormSubmit = (e: any) => {
     e.preventDefault();
-    props.onSubmit(flag);
-    console.log(flag);
+    props.onSubmit ? props.onSubmit(flag) : console.log(flag);
   };
 
   useEffect(() => {
@@ -51,11 +67,16 @@ const PostModal: React.FC<ButtonPropsType> = (props) => {
   });
   return (
     <>
-      <PostModalStyle primary={flag} id="MODAL" onSubmit={onFormSubmit}>
+      <PostModalStyle onSubmit={onFormSubmit}>
         <PostModalContents>
-          <PostModalClose id="close"></PostModalClose>
-          <h2>TEST</h2>
-          <hr />
+          <PostModalClose id="close">
+            <span role="img" aria-label="closeP">
+              ✖
+            </span>
+          </PostModalClose>
+          <ModalStyle>
+            <HelloPost postPhoto={props.postPhoto}></HelloPost>
+          </ModalStyle>
         </PostModalContents>
       </PostModalStyle>
     </>
