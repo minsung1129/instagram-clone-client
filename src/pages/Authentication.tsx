@@ -1,10 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Input from '../components/Input';
 import useInput from '../Hooks/UseInput';
-import Google from '../img/Logo.png';
+import GoogleLoginBtn from '../components/GoogleLogin';
 
 const Wrapper = styled.article`
   min-height: 80vh;
@@ -100,24 +98,12 @@ justify-content: center;
   opacity: 0.4;
 }
 `;
-const GLogo = styled.img`
-display:block;
-width : 30px;
-height: 30px;
-margin-right: 8px;
-user-select:none;
-user-drag: none;
-`;
-const GoogleLogin = styled.span`
-font-size: 15px;
-font-weight: 600;
-color: #385185;
-`;
-const Findpassword = styled(GoogleLogin)`
+const Findpassword = styled.span`
 font-size: 13px;
 font-weight: 500;
 margin-top:30px;
 margin-left:10px;
+color: #385185;
 `;
 const Message = styled.h2`
 color: #8e8e8e;
@@ -169,10 +155,7 @@ export default () => {
                   <Line />
                 </Wrapper3>
                 <Wrapper4>
-                  <Googlebtn>
-                    <GLogo style={{ borderRadius: 10 }} src={Google} alt="" />
-                    <GoogleLogin>Google으로 로그인</GoogleLogin>
-                  </Googlebtn>
+                  <GoogleLoginBtn />
                 </Wrapper4>
                 <Wrapper4>
                   <Googlebtn>
@@ -187,10 +170,7 @@ export default () => {
                   <Message>친구들의 사진과 동영상을 보려면 가입하세요.</Message>
                 </Wrapper3>
                 <Wrapper4>
-                  <Googlebtn>
-                    <GLogo style={{ borderRadius: 10 }} src={Google} alt="" />
-                    <GoogleLogin>Google으로 로그인</GoogleLogin>
-                  </Googlebtn>
+                  <GoogleLoginBtn />
                 </Wrapper4>
                 <Wrapper3>
                   <Line />
