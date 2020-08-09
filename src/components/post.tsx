@@ -18,6 +18,10 @@ const PostImg = styled.div<PostPropsType>`
   background-position: center;
   background-size: 100%;
   margin: 0.5em 1em 0.5em 1em;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 const ThreePosts = styled.div`
