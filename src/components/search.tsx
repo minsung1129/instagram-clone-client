@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState, useEffect, MouseEvent } from "react";
 
 // import styled from "styled-components";
 import styled from "styled-components";
@@ -21,18 +21,21 @@ const Search: React.FC<ButtonPropsType> = (props) => {
     event.stopPropagation();
     setFlag(false);
   };
-  document.addEventListener("onClick", () => {
-    setFlag(false);
-    // console.log(props.primary);
+  useEffect(() => {
+    document.getElementById("searchInput")?.addEventListener("click", () => {
+      document.getElementById("searchInput2")?.focus();
+    });
   });
-  document.getElementById("searchInput")?.focus();
   return (
-    <SearchSpan onClick={openX}>
-      &nbsp;🔍 {flag ? "" : " 검색"}
+    <SearchSpan onClick={openX} id="searchInput">
+      &nbsp;
+      <span role="img" aria-label="search">
+        🔍 {flag ? "" : " 검색"}
+      </span>
       <InstaInput
         primary={flag}
         placeholder="검색"
-        id="searchInput"
+        id="searchInput2"
       ></InstaInput>
       <SearchButton primary={flag} onClick={closeX}>
         x

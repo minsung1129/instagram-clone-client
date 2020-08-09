@@ -11,7 +11,11 @@ const Navspan = styled.span`
   display: flex;
 `;
 const Navdiv = styled.div`
+  position: fixed;
+  top: 0;
   align-items: center;
+  background-color: white;
+  width: 60%;
   justify-content: space-between;
   display: flex;
   ::link {

@@ -1,15 +1,7 @@
-import React, { useState, MouseEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import testImg from "../img/park.png";
 import Post from "../components/post";
-
-// username
-// user photo
-// 게시물 수
-// follower
-// following
-// 게시물
-// 자기소개
 
 interface ButtonPropsType {
   photoURL?: string;
@@ -59,17 +51,11 @@ const Profile: React.FC<ButtonPropsType> = (props) => {
   let [follower, setFollower] = useState<number>(222);
   let [following, setFollowing] = useState<number>(333);
 
-  useEffect(() => {
-    document.getElementById("hi")?.addEventListener("click", () => {
-      console.log("bye");
-    });
-  }, []);
-
   return (
     <div>
       <MyProfile>
         <ProfileImg photoURL={myPhotoURL}></ProfileImg>
-        <div id="hi">
+        <div>
           <h3>
             {userName} &nbsp;&nbsp;
             <FollowBtn>팔로우</FollowBtn>
