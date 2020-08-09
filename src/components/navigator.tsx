@@ -1,8 +1,8 @@
-import React from "react";
-import Search from "./search";
-import { Link } from "react-router-dom";
-import instagram from "../img/instagram.png";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Search from './search';
+import instagram from '../img/instagram.png';
 
 type NavigatorProps = {};
 
@@ -37,17 +37,19 @@ const Navigator: React.FC<NavigatorProps> = () => (
           🏠
         </span>
       </Link>
-      <span role="img" aria-label="explor">
-        🧭
-      </span>
-      <span role="img" aria-label="heart">
-        💔
-      </span>
-      <Link to="/profile">
-        <span role="img" aria-label="setting">
-          ⚙️
+      <Link to="/explor">
+        <span role="img" aria-label="explor">
+          🧭
         </span>
       </Link>
+      <Link to="/login">
+        <span role="img" aria-label="heart">
+          💔
+        </span>
+      </Link>
+      <span role="img" aria-label="setting">
+        ⚙️
+      </span>
     </Navspan>
   </Navdiv>
 );

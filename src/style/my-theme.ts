@@ -1,13 +1,19 @@
-// my-theme.ts
-import { DefaultTheme } from "styled-components";
+const BOX_BORDER = '1px solid #dbdbdb';
+const BORDER_RADIUS = '4px';
 
-const myTheme: DefaultTheme = {
-  borderRadius: "5px",
-
-  colors: {
-    main: "cyan",
-    secondary: "magenta",
-  },
+export default {
+  bgColor: '#FAFAFA',
+  blackColor: '#262626',
+  blueColor: '#0095F6',
+  whiteColor: '#FFFFFF',
+  lightGreyColor: '#c7c7c7',
+  redColor: '#ED4956',
+  darkGreyColor: '#8E8E8E',
+  darkblueColor: '#00376b',
+  boxBorder: '1px solid #dbdbdb',
+  borderRadius: '4px',
+  whiteBox: `border:${BOX_BORDER};
+    border-radius:${BORDER_RADIUS};
+    background-color:white;
+   `,
 };
-
-export { myTheme };

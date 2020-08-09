@@ -1,8 +1,14 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
-const GlobalStyle = createGlobalStyle`
+export default createGlobalStyle`
+${reset};
+* {
+  box-sizing:border-box;
+}
   body {
-    background-color: ${(props: any) => (props.whiteColor ? "white" : "black")};
+    background-color:#FAFAFA;
+    color:#262626;
     justify-content: center;
     align-items: center;
     margin-left: 20%;
@@ -11,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
   }
+  input:focus{
+    outline:none;
+  }
 `;
-
-export default GlobalStyle;
