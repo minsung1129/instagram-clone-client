@@ -5,7 +5,7 @@ export default {
   bgColor: '#FAFAFA',
   blackColor: '#262626',
   blueColor: '#0095F6',
-  whithColor: '#FFFFFF',
+  whiteColor: '#FFFFFF',
   lightGreyColor: '#c7c7c7',
   redColor: '#ED4956',
   darkGreyColor: '#8E8E8E',
